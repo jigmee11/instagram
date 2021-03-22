@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<body style="margin: 0px;">
+      <div style="display: flex; justify-content: center; align-items: center; width: 100vw;
+       height: 100vh;" id="nice">
+            <button id="stop" onclick="change('stop','continue')">Stop</button>
+            <button onclick="change('continue','stop')" style="display: none;" id="continue">Continue</button>
+      </div>
+</body>
+<script>
+      let t=0;
+      let a = true;
+      const array = ["red","orange","yellow","green","blue","indigo","violet"];
+      setInterval(()=>{
+            if(a===false){
+                  return;
+            }
+            document.getElementById("nice").style.backgroundColor = array[t];      
+            t++;
+            if(t==array.length){
+                  t=0;
+            }
+      }, 1000);
+      const change = (own,other) => {
+            document.getElementById(own).style.display='none';
+            document.getElementById(other).style.display='block';
+            if(own=="stop"){
+                  a=false;
+            }
+            else{
+                  a=true;
+            }
+      }
+</script>
+</html>
